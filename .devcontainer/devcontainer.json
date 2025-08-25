@@ -1,0 +1,36 @@
+{
+	"name": "Curso Astro Js",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/home/web/sites/courses/astrojs",
+	"shutdownAction": "stopCompose",
+	"remoteUser": "web",
+	"containerUser": "web",
+	"containerEnv": {
+		"SHELL": "/bin/zsh"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"astro-build.astro-vscode",
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint",
+				"bradlc.vscode-tailwindcss",
+				"editorconfig.editorconfig",
+				"mhutchie.git-graph",
+				"pkief.material-icon-theme",
+				"humao.rest-client",
+				"ms-azuretools.vscode-docker",
+				"shardulm94.trailing-spaces",
+				"sonarsource.sonarlint-vscode",
+				"codeium.codeium"
+			],
+			"settings": {
+				"terminal.integrated.copyOnSelection": true,
+				"editor.formatOnSave": true,
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			}
+		}
+	},
+	"postCreateCommand": "pnpm install"
+}
