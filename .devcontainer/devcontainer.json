@@ -31,6 +31,5 @@
 				"terminal.integrated.defaultProfile.linux": "zsh"
 			}
 		}
-	},
-	"postCreateCommand": "pnpm install"
+	}
 }

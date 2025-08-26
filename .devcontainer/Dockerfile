@@ -43,6 +43,6 @@ RUN \
   printf 'export PATH="$PNPM_HOME:$PATH"\n' >> /home/web/.zshrc && \
   # Configurar GPG_TTY
   echo '\nexport GPG_TTY=$(tty)' >> /home/web/.bashrc && \
-  echo 'export GPG_TTY=$(tty)' >> /home/web/.zshrc
+  echo '\nexport GPG_TTY=$(tty)' >> /home/web/.zshrc
 
 EXPOSE 4321

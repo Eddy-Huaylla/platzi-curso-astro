@@ -1,5 +1,4 @@
 name: curso-astro-devcontainer
-version: "3.9"
 
 services:
   app:
@@ -15,18 +14,16 @@ services:
     volumes:
       - ..:/home/web/sites/courses/astrojs      # monta el proyecto local
     ports:
-      - "4321:4321"             # puerto por defecto de Astro dev server
+      - 4321:4321             # puerto por defecto de Astro dev server
 
   nginx:
     container_name: curso-astro-nginx
     image: openresty/openresty:alpine
     restart: unless-stopped
     volumes:
-      - ../server/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../server/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
       - ../server/certs:/etc/nginx/certs:ro
     ports:
-      - "443:443"
-      - "80:80"
+      - 443:443
     depends_on:
       - app
-
