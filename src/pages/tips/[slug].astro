@@ -1,0 +1,23 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import TipLayout from "../../layouts/partials/TipLayout.astro";
+
+type Props = {
+	entry: CollectionEntry<"tips">;
+};
+
+export async function getStaticPaths() {
+	const tips = await getCollection("tips");
+	return tips.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<TipLayout frontmatter={entry.data}>
+	<Content />
+</TipLayout>

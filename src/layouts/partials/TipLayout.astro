@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../Layout.astro";
+import type { Tip } from "../../types/Tip";
+import { formatDate } from "../../utils/dates";
+
+interface Props {
+	frontmatter: Tip;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+	<main class="max-w-3xl mx-auto p-4">
+		<article>
+			<h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
+			<p class="text-gray-600 mb-4">
+				Publicado el: {formatDate(frontmatter.pubDate)}
+			</p>
+			{
+				frontmatter.image && (
+					<img
+						src={frontmatter.image}
+						alt={frontmatter.title}
+						class="w-full h-auto object-cover rounded-lg mb-4"
+					/>
+				)
+			}
+
+			<div class="markdown-content py-4">
+				<slot />
+				<!-- The markdown content will be injected here -->
+			</div>
+
+			<div class="mt-4">
+				Etiquetas:
+				{
+					frontmatter.tags.map((tag) => (
+						<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+							#{tag}
+						</span>
+					))
+				}
+			</div>
+		</article>
+	</main>
+</BaseLayout>
