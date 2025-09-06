@@ -80,8 +80,8 @@ Este proyecto está preparado para desarrollar con **Astro** usando **Docker**, 
                   ▼
 ┌───────────────────────────────────────────┐
 │ Astro Dev Server (contenedor "app")       │
-│  host: 0.0.0.0, port: 4321                 │
-│  Vite: allowedHosts + HMR configurado      │
+│  host: 0.0.0.0, port: 4321                │
+│  Vite: allowedHosts + HMR configurado     │
 └───────────────────────────────────────────┘
 ```
 
@@ -91,10 +91,10 @@ Este proyecto está preparado para desarrollar con **Astro** usando **Docker**, 
 
 Este proyecto utiliza las siguientes tecnologías clave:
 
-*   **Astro**: El framework web para construir sitios rápidos y modernos.
-*   **HyperUI**: Una colección de componentes de interfaz de usuario (UI) de código abierto y listos para usar, construidos con Tailwind CSS. Puedes encontrar más información en [https://www.hyperui.dev/](https://www.hyperui.dev/).
-*   **Docker / VS Code Dev Containers**: Para un entorno de desarrollo consistente y aislado.
-*   **Nginx**: Como proxy inverso para manejar HTTPS y el enrutamiento local.
+-   **Astro**: El framework web para construir sitios rápidos y modernos.
+-   **HyperUI**: Una colección de componentes de interfaz de usuario (UI) de código abierto y listos para usar, construidos con Tailwind CSS. Puedes encontrar más información en [https://www.hyperui.dev/](https://www.hyperui.dev/).
+-   **Docker / VS Code Dev Containers**: Para un entorno de desarrollo consistente y aislado.
+-   **Nginx**: Como proxy inverso para manejar HTTPS y el enrutamiento local.
 
 ---
 
