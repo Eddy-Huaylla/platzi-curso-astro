@@ -2,7 +2,7 @@
 title: "Mi Primer Tip"
 pubDate: 2025-09-06
 description: "Esta es una breve descripción de mi primer tip sobre Astro."
-image: "/assets/images/tip-1.jpg"
+image: "https://images.unsplash.com/photo-1526374965328-5f61d4dc18c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 tags: ["astro", "learning", "beginner"]
 ---
 
