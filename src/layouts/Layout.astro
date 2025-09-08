@@ -1,8 +1,10 @@
 ---
-import Header from '../components/react/Header';
+import Header from "../components/react/Header";
+import Footer from "../components/vue/Footer.vue";
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -13,5 +15,6 @@ import Header from '../components/react/Header';
 	<body>
 		<Header client:load />
 		<slot />
+		<Footer client:visible />
 	</body>
 </html>

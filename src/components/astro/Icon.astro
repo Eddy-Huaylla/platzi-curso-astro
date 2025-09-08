@@ -1,0 +1,25 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+interface Props {
+	/** Ejemplo: "mdi:home", "custom:email", "lucide:search" */
+	name: string;
+	class?: string;
+}
+
+const { name, class: className = "inline-block size-5 text-gray-900" } =
+	Astro.props as Props;
+
+let Component: AstroComponentFactory | null = null;
+
+try {
+	// unplugin-icons soporta rutas tipo `~icons/mdi/home`
+	const [collection, icon] = name.split(":");
+	const mod = await import(`~icons/${collection}/${icon}.js`);
+	Component = mod.default as AstroComponentFactory;
+} catch (err) {
+	console.warn(`[Icon] No se pudo cargar el icono: ${name}`, err);
+}
+---
+
+{Component ? <Component class={className} /> : <span class={className}>?</span>}
