@@ -1,0 +1,70 @@
+vars: {
+  d2-config: {
+    theme-id: 3 # terrastruct
+    sketch: true
+    layout-engine: elk
+  }
+  colors: {
+    c2: "#C7F1FF" # light turkuaz
+    c3: "#B5AFF6" # dark purple
+    c4: "#DEE1EB" # gray
+    c5: "#88DCF7" # turkuaz
+    c6: "#E4DBFE" # purple
+  }
+}
+
+FooterSystem: {
+  style.fill: ${colors.c4}
+
+  Data: {
+    data_file: {
+      label: "📄 footer.ts\n(description, socials, linkSections, etc.)"
+      style.fill: ${colors.c4}
+    }
+  }
+
+  Astro: {
+    style.fill: ${colors.c5}
+    footer_section_astro: {
+      label: "FooterSection.astro\n(Orquestador Astro)"
+    }
+    icon_astro: {
+      label: "Icon.astro\n(Renderizador SVG)"
+    }
+  }
+
+  Vue: {
+    style.fill: ${colors.c6}
+    footer_vue: "Footer.vue\n(Contenedor Vue)"
+    footer_info_vue: "FooterInfo.vue\n(Info Empresa)"
+    footer_links_vue: "FooterLinks.vue\n(Secciones de Enlaces)"
+    footer_link_vue: "FooterLink.vue\n(Item de Enlace)"
+  }
+}
+
+# Relaciones
+FooterSystem.Data.data_file -> FooterSystem.Astro.footer_section_astro: "Importa datos"
+FooterSystem.Astro.footer_section_astro -> FooterSystem.Vue.footer_vue: "Pasa datos como props"
+FooterSystem.Astro.footer_section_astro -> FooterSystem.Astro.icon_astro: "Renderiza iconos"
+FooterSystem.Astro.icon_astro -> FooterSystem.Vue.footer_vue: "Pasa iconos renderizados\n(slots: #logo, #social-icon, #contact-icon)"
+FooterSystem.Vue.footer_vue -> FooterSystem.Vue.footer_info_vue: "Pasa props\n(description, socials)"
+FooterSystem.Vue.footer_vue -> FooterSystem.Vue.footer_links_vue: "Pasa props\n(linkSections)"
+
+FooterSystem.Vue.footer_info_vue -> FooterSystem.Vue.footer_vue: "Slots para iconos\n(#logo, #social-icon)" {
+  style: {
+    stroke-dash: 2
+  }
+}
+
+FooterSystem.Vue.footer_links_vue -> FooterSystem.Vue.footer_vue: "Scoped Slot (link)" {
+  style: {
+    stroke-dash: 2
+  }
+}
+
+FooterSystem.Vue.footer_vue -> FooterSystem.Vue.footer_link_vue: "Pasa props (link)"
+FooterSystem.Vue.footer_link_vue -> FooterSystem.Vue.footer_vue: "Slot para icono (#icon)" {
+  style: {
+    stroke-dash: 2
+  }
+}

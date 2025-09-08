@@ -208,7 +208,7 @@ export default defineConfig({
 });
 ```
 
-> Si ves un error tipo **“Blocked request. This host (\"dev.curso-astro.com\") is not allowed”**, asegúrate de tener `allowedHosts` configurado como arriba.
+> Si ves un error tipo **“Blocked request. This host ("dev.curso-astro.com") is not allowed”**, asegúrate de tener `allowedHosts` configurado como arriba.
 
 ---
 
@@ -248,12 +248,12 @@ docker compose up -d --build
 
 -   Verifica contenedores:
     ```bash
-    docker ps
-    ```
+docker ps
+```
 -   Apaga el entorno:
     ```bash
-    docker compose down
-    ```
+docker compose down
+```
 
 > Si el puerto 443 está ocupado en tu host, consulta la sección **Solución de Problemas**.
 
